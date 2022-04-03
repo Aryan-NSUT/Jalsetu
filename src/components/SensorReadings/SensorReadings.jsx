@@ -1,12 +1,41 @@
 import React from "react";
-import { Paper, Typography, Grid, Button } from "@mui/material";
+import { Paper, Typography, Grid, IconButton } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material";
+import {useState, useEffect} from "react";
 const SensorReadings = () => {
   const theme = createTheme({
     typography: {
       fontFamily: ["Inter"],
     },
   });
+  const [field, setfield] = useState([]);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("https://api.thingspeak.com/channels/1682332/feeds.json?api_key=JJN2ESGESP51H4JP&results=2");
+      const data = await response.json();
+      const sensorData = data.feeds.map((sensor)=>{
+        return {
+          id : sensor.entry_id,
+          turbidity : sensor.field1,
+          pH : sensor.field2,
+          waterContent : sensor.field3,
+          bill : sensor.field4,
+        }
+      })
+      setfield(sensorData[sensorData.length - 1]);
+      console.log(sensorData[sensorData.length - 1])
+    }
+    fetchData();
+    const interval=setInterval(()=>{
+      fetchData()
+     },16000)
+     return()=>clearInterval(interval)
+  }, []);
+
+  
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -33,13 +62,17 @@ const SensorReadings = () => {
             elevation={12}
           >
             <Typography
-              color="error"
+              // color="error"
               variant="h3"
               fontWeight={600}
               gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
+              color={field.waterContent >= 70 ? "green" : (field.waterContent >= 30 ) ? "#F5A841" : "red"}
+              // (area == 0) ? icon0 : (area == 1) ? icon1 : icon2;
             >
-              13%
+              {parseFloat(field.waterContent).toFixed(2)}%
+
+              {/* 13% (Temp) */}
             </Typography>
             <Typography
               variant="h5"
@@ -50,9 +83,8 @@ const SensorReadings = () => {
               Water Level
             </Typography>
             <Typography>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              Track water level so that you can plan when to turn on the motor.
+              Switch off the motor when water level reaches approximately 90%.
             </Typography>
           </Paper>
         </Grid>
@@ -85,7 +117,8 @@ const SensorReadings = () => {
               gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
             >
-              4.5pH
+              
+              {(field.pH <=8.0 && field.pH >=6.0) ? 90 : 20} JsU
             </Typography>
             <Typography
               variant="h5"
@@ -96,9 +129,8 @@ const SensorReadings = () => {
               Water Quality
             </Typography>
             <Typography>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              Track water quality so that you can good quality water.
+              Contact us immediately if your water quality is below 30.
             </Typography>
           </Paper>
         </Grid>
@@ -127,13 +159,14 @@ const SensorReadings = () => {
             elevation={12}
           >
             <Typography
-              color="#F5A841"
+              // color="#F5A841"
               variant="h4"
-              fontWeight={600}
+              fontWeight={700}
               gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
+              color={field.turbidity >= 60 ? "green" : "red"}
             >
-              4.5pH
+              {parseFloat(field.turbidity).toFixed(2)} NTU
             </Typography>
             <Typography
               variant="h5"
@@ -161,7 +194,9 @@ const SensorReadings = () => {
               gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
             >
-              4.5pH
+             {parseFloat(Math.abs((field.pH)).toFixed(2))} pH
+
+             {/* 7.6 pH */}
             </Typography>
             <Typography
               variant="h5"
@@ -169,7 +204,7 @@ const SensorReadings = () => {
               gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
             >
-              Drainage
+              pH Level
             </Typography>
           </Paper>
         </Grid>
@@ -201,7 +236,7 @@ const SensorReadings = () => {
               // gutterBottom
               sx={{ textAlign: { md: "left", sx: "center" } }}
             >
-              ₹540
+              ₹{parseFloat(field.bill).toFixed(2)}
             </Typography>
             <Typography
               variant="subtitle1"
@@ -212,9 +247,11 @@ const SensorReadings = () => {
                 month: "long",
               })} ${new Date().getFullYear()}`}
             </Typography>
-            <Button
+            <IconButton
               variant="contained"
               sx={{
+                pl : 2,
+                pr : 2,
                 borderRadius: "10000px",
                 display: {md:"flex", xs:""},
                 justifyContent: { md: "end", xs: "center" },
@@ -223,9 +260,13 @@ const SensorReadings = () => {
                   bgcolor: "#383838",
                 },
               }}
+              onClick={() => window.open('https://rzp.io/l/Z4PWe00e13')}
             >
-              Pay Here
-            </Button>
+              <Typography sx={{pr : 1, color : "#FFFFFF"}}>
+                Pay Here
+              </Typography>
+              {/* <PaymentIcon sx={{color : "#FFFFFF"}}/> */}
+            </IconButton>
           </Paper>
         </Grid>
       </Grid>
