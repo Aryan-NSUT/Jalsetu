@@ -14,7 +14,7 @@ For future scope, we can mine the data of user's water quality and mapping it wi
 
 ### `Components Used`
 
-For this project, we used the following hardware/software technologies :
+For this project, we used the following hardware/software technologies : <br/>
 • ESP32 <br/>
 • Turbidity Sensor <br/>
 • pH & Temperature Sensor <br/>
