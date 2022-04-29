@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Jalsetu : A IoT enabled device for your tank
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This was a semester-wide project for the course "Internet of Things" (COCSE20) from students of Netaji Subhas University of Technology (NSUT).
 
-## Available Scripts
+## About This project
 
-In the project directory, you can run:
+Water is such an essential commodity for our day to day lives and yet India is placed at 120th amongst 122 countries in the Water Quality Index, with nearly 70% of water being contaminated. The part problem is the governments failure to address the issue seriously and people not understanding how contaminated their water actually is. Ofcourse drinking contaminated water may not always be harmful immediately but small steps goes a long way (and here, it is not in a good way).
 
-### `npm start`
+### `Our Solution`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We present a way to see the qualitative and quantitative analysis of water tank in forms of simple numbers. Our project "Jalsetu" comprises of 2 words : "Jal" (water) and "Setu" (bridge). Our product acts like a bridge which brings user closer to the truth about the water they are consuming.
+The product is a device which can be directly installed to users water tank. Once installed, user can check their water level, pH, quality and monthly bill too from the personal dashboard provided.
+For future scope, we can mine the data of user's water quality and mapping it with users area, we can send reports to government or local authorities helping them in pinpointing places where water quality needs urgent care.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Components Used`
 
-### `npm test`
+For this project, we used the following hardware/software technologies :
+• ESP32
+• Turbidity Sensor
+• pH & Temperature Sensor
+• Ultrasonic Sensor HC-SR04
+• ReactJs
+• Material UI
+• ThingSpeak
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Project Circuit and Dashboard`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Alt text](src/items/oie_XwuGuaI8B9vf.jpg?raw=true "Title")
