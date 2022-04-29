@@ -15,12 +15,12 @@ For future scope, we can mine the data of user's water quality and mapping it wi
 ### `Components Used`
 
 For this project, we used the following hardware/software technologies :
-• ESP32
-• Turbidity Sensor
-• pH & Temperature Sensor
-• Ultrasonic Sensor HC-SR04
-• ReactJs
-• Material UI
+• ESP32 <br/>
+• Turbidity Sensor <br/>
+• pH & Temperature Sensor <br/>
+• Ultrasonic Sensor HC-SR04 <br/>
+• ReactJs <br/>
+• Material UI <br/>
 • ThingSpeak
 
 ### `Project Circuit and Dashboard`
