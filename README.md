@@ -21,7 +21,8 @@ For this project, we used the following hardware/software technologies : <br/>
 • Ultrasonic Sensor HC-SR04 <br/>
 • ReactJs <br/>
 • Material UI <br/>
-• ThingSpeak
+• ThingSpeak <br/>
+• NodeMCU
 
 ### `Project Circuit and Dashboard`
 
